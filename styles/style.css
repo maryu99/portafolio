@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*1rem: 16px*/
+
+:root {
+    --color-primario: #000000;
+    --color-secundario: #f6f6f6;
+    --color-terciario: #22d4fd;
+    --color-hover: #272727;
+
+    --fuente-montserrat: 'Monserrat' san serif;
+    --fuente-krona: 'Krona One', sans serif;
+}
+
+* { /*El asterisco significa todo el documento*/
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    /*height: 100vh;*/ /*la v hace referencia al viewport que se asigno en un meta, la h es altura, esta indicando que el contenido body abarcará todo el espacio (100%)*//* El viewport es lo que hace responsiva una página*/
+    box-sizing: border-box; /*tiene dos valores: content-box y el border-box. Es el responsable de como se calculan el ancho y el alto totales de un elemento*/ /*Border box evita que el contenido se salga del contenido*/
+}
+/*El border-box le indica le indica al navegador que tenga en cuenta cualquier borde y relleno en los valores especificados para el ancho y el alto de un elemento*/
+
+.header {
+    padding: 2% 0% 0% 15%; /*el padding se usa para dar espacio alrededor del contenido de un elemento, dentro de cualquier border definido*/
+}
+
+.header__menu {
+    display: flex;
+    gap: 80px;
+}   
+
+.header__menu__link {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+.presentacion {
+    display: flex; /*display flex alinea de acuerdo al elemento que es mayor*/ /*Se tiene que activar el flexbox (de esta manera) para poder acceder a sus demas propiedades */
+    align-items: center;
+    padding: 6% 15%;
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.presentacion__contenido {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /*gap: espacio entre los elementos (entre filas y columnas en diseños de cuadricula. flex y de varias columnas*/
+}
+
+.presentacion__contenido__titulo {
+    font-size: 2.25rem;
+    font-family: var(--fuente-krona);
+}
+
+.titulo-destaque {
+    color: var(--color-terciario);
+}
+
+.presentacion__contenido__texto {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.presentacion__enlaces {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /*para alinear los botones verticalmente*/
+    align-items: center;/*centrar los botones*/
+    gap: 32px;
+}
+
+.presentacion__enlaces__subtitulo {
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.presentacion__enlaces__link {
+    width: 50%;
+    text-align: center;
+    padding: 21.5px 0;
+    border-radius: 8px;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600px;
+    text-decoration: none;
+    color: var(--color-secundario);
+    border: 2px solid var(--color-terciario); /*2px se refiere al grosor del border. Solid se refiere al estilo de contorno del boton, en este caso es solido*/
+    display: flex;
+    justify-content: center; /*el justify content es para alinear horizontalmente*/
+    gap: 16px;
+}
+
+.presentacion__enlaces__link:hover {
+    background-color: var(--color-hover);
+    /*border-color: #0000FF;*/
+}
+
+.presentacion__imagen {
+    width: 50%
+}
+
+.footer {
+    background-color: var(--color-terciario);
+    padding: 24px;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media(max-width: 1200px) {
+    .header {
+        padding: 10%;
+    }
+
+    .header__menu {
+        justify-content: center;
+    }
+
+    .presentacion {
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .presentacion__contenido {
+        width: auto; 
+    }
+    /*El width auto se adapta al elemento padre, no siempre ocupa el 100% del contenido del padre
+     *el 100%, siempre es el 100% independiente del contenido
+    */
+}
